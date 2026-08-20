@@ -73,25 +73,41 @@ Frontend will start at: http://localhost:5173/
 
 ```
 ### 3. Backend Setup
-   ```bash
-cd backend
-./mvnw spring-boot:run
+ 
+## 1. Create and activate virtual environment
+```bash
+py -m venv venv
+```
+## Activate the virtual environment:
 
+## Windows:
+```bash
+venv\Scripts\activate
+```
+## 2. Navigate to the backend
+```bash
+cd ig-backend
+```
+## 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+## 4. Apply database migrations
+```bash
+py manage.py migrate
+```
+## 5. Start the development server
+```bash
+py manage.py runserver
+```
+## The backend will be available at:
+```bash
+http://127.0.0.1:8000/
 
 Backend will start at: http://localhost:8080/
 ```
+
 ### 4. Environment Variables
 
-Create a .env file inside frontend/:
-```bash
+Create a .env file inside frontend and backend
 
-VITE_CLERK_FRONTEND_API=<your-clerk-frontend-api>
-```
-### 5.Create an application.properties file inside backend/src/main/resources/:
-```bash
-spring.data.mongodb.uri=<your-mongodb-uri>
-clerk.webhook.secret=<your-clerk-secret>
-jwt.secret=<your-jwt-secret>
-spring.mail.username=<your-email>
-spring.mail.password=<your-email-password>
-```
